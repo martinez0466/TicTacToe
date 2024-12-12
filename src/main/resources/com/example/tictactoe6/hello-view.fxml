@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<?import java.lang.String?>
+<VBox alignment="CENTER" spacing="20.0" prefWidth="600.0" prefHeight="600.0" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17.0.6" fx:controller="com.example.tictactoe6.Controller" style="-fx-background-color: black;">
+
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" text="TicTacToe" />
+
+    <HBox alignment="center" spacing="10">
+        <Label style="-fx-text-fill: white;" text="Mode: " />
+        <ComboBox fx:id="modeSelection" onAction="#handleModeSelection" value="vs Player">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="vs Player" />
+                    <String fx:value="vs Computer" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <HBox alignment="center" spacing="10">
+        <!-- Wins for Computer -->
+        <Label style="-fx-text-fill: white;" text="Computer Wins: " />
+        <Label fx:id="ComputerWins" text="0" style="-fx-text-fill: white;" />
+    </HBox>
+
+    <HBox alignment="center" spacing="10">
+        <!-- Wins for Player -->
+        <Label style="-fx-text-fill: white;" text="Player Wins: " />
+        <Label fx:id="PlayerWins" text="0" style="-fx-text-fill: white;" />
+    </HBox>
+
+    <GridPane fx:id="board" alignment="center" hgap="10" vgap="10" style="-fx-background-color: black;">
+        <!-- Row and Column Constraints for equal sizing -->
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" percentWidth="33"/>
+            <ColumnConstraints halignment="CENTER" percentWidth="33"/>
+            <ColumnConstraints halignment="CENTER" percentWidth="33"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints valignment="CENTER" percentHeight="33"/>
+            <RowConstraints valignment="CENTER" percentHeight="33"/>
+            <RowConstraints valignment="CENTER" percentHeight="33"/>
+        </rowConstraints>
+
+        <!-- Row 1 -->
+        <Button fx:id="button1" onAction="#handleButtonClick" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+        <Button fx:id="button2" onAction="#handleButtonClick" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+        <Button fx:id="button3" onAction="#handleButtonClick" GridPane.columnIndex="2" GridPane.rowIndex="0" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+
+        <!-- Row 2 -->
+        <Button fx:id="button4" onAction="#handleButtonClick" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+        <Button fx:id="button5" onAction="#handleButtonClick" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+        <Button fx:id="button6" onAction="#handleButtonClick" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+
+        <!-- Row 3 -->
+        <Button fx:id="button7" onAction="#handleButtonClick" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+        <Button fx:id="button8" onAction="#handleButtonClick" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+        <Button fx:id="button9" onAction="#handleButtonClick" GridPane.columnIndex="2" GridPane.rowIndex="2" style="-fx-base: white; -fx-text-fill: black;" prefWidth="100" prefHeight="100">
+            <Tooltip text="Click to place X or O" />
+        </Button>
+    </GridPane>
+
+    <Label fx:id="currentPlayerLabel" text="Current Player: X" style="-fx-text-fill: white;" />
+    <Label fx:id="statusMessage" text="Let's Start!" style="-fx-text-fill: white;" />
+
+    <Button text="Reset Board" onAction="#resetBoard" style="-fx-base: white; -fx-text-fill: black;">
+        <Tooltip text="Reset the game board" />
+    </Button>
+    <Button text="Reset Game" onAction="#resetGame" style="-fx-base: white; -fx-text-fill: black;">
+        <Tooltip text="Reset the game and scores" />
+    </Button>
+
+</VBox>
